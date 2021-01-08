@@ -1,0 +1,26 @@
+{% extends 'main/baseProfile.html' %}
+{% load static %}
+{% load widget_tweaks %}
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/editprofile.css' %}">
+{% endblock head %}
+{% block title %}
+Edit Profile
+{% endblock title %}
+
+{% block body %}
+<section class="cover_forms" >
+    <form action="" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="firstName">Book name: {% render_field form.book_name|add_class:'firstName renderfirstName'%}</div>
+       
+        <div class="describtion">Description :{% render_field form.Description|add_class:'describtion renderdescribtion'%}</div>
+        <div class="avatar">Image :{% render_field form.image|add_class:'avatar renderavatar'%}</div>
+       
+        <button class="save" type="submit">Save</button>
+        </form>
+</section>
+
+
+{% endblock body %}
+

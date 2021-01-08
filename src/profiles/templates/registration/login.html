@@ -1,0 +1,39 @@
+
+{% load static %}
+{% load widget_tweaks %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/loginStyle.css' %}">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+       
+    </div>
+    <div class="cover">
+        <div class="login">
+            <h2>Welcome</h2>
+            <p> 
+            {% if form.errors %}
+              Your username and password didn't match. Please try again.
+          {% endif %}
+        </p>
+            <div class="form_login">
+                
+                <form action="" method='POST'>
+                  {% csrf_token %}
+                    {% render_field form.username|add_class:'username_Login'|attr:"placeholder:username" %}
+                    {% render_field form.password|add_class:'pasword_Login'|attr:"placeholder:password" %}
+                    <button type="submit" >Login</button>
+                </form>
+                <p class="lostpassword">
+                 <a href="{% url 'password_reset' %}">Lost password?</a></p>
+                 <p class="notessignup">Create an account from&ThinSpace;<a href="{% url 'profile:signup' %}">signup</a></p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,61 @@
+{% extends 'main/baseallBook.html' %}
+{% load static %}
+
+{% block head %}
+<link rel="stylesheet icon" href="{% static 'css/allBookStyle.css' %}">
+{% endblock head %}
+{% block title %}
+Books
+{% endblock title %}
+{% block body %}
+<div class="cover">
+    <div class="wepper">
+        <h2>You can add a book by clicking on <a href="/library/add_book/">Add Book</a> </h2>
+        {% for i in obj %}
+        <div class="card__book">
+            <div class="title__book">
+                <div class="image__book">
+                    {% if i.image %}
+                    <img src="{{i.image.url}}" alt="" class="image__book">
+                    {% else %}
+                    <img src="{% static 'img/avatar3.png' %} alt="" class="image__book">
+                    {% endif %}
+                </div>
+                <div class="collecter">
+                    <div class="auther__book">
+                        <a href="{% url 'profile:profile_view' i.publisher.slug %}">{{i.publisher}}</a>
+                    </div>
+                    <div class="created__book">
+                        <p>{{i.published|date:"Y , M , D"}}</p>
+                    </div>
+                </div>
+            </div>
+            <!-- book information -->
+           
+            <div class="discription__address">
+                <h5><a href="">{{i.book_name}}</a></h5>
+                <div class="discription__book">{{i.Description}}</div>
+            </div>
+            
+            <!--end book information-->
+            {% if i.publisher.name == request.user %}
+            <div class="update__book">
+                <a href="{% url 'profile:editbookforms' i.slug %}"><i class="fas fa-pencil"></i></a> 
+            </div>
+            <div class="delete__book">
+                <a href="{% url 'profile:deleteBook' i.slug %}"><i class="fas fa-trash"></i></a>    
+            </div>
+            {% endif %}
+        </div> 
+        
+        {% endfor %}   
+    </div>
+</div>
+{% endblock body %}
+
+{% block script %}
+<script>
+
+</script>
+
+{% endblock script %}

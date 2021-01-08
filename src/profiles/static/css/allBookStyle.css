@@ -1,0 +1,144 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.cover{
+    width: 100%;
+    height: 600px;
+    background-color: #131313;
+    display: flex;
+    padding-top: 90px;
+    justify-content: center;
+    color: #fff;
+}
+.cover h2{
+    font-weight: 400;
+    font-size: 20px;
+    margin-bottom: 25px;
+}
+
+.cover h2 a{
+    text-decoration: none;
+    color: #a63bdd;
+}
+
+.wepper{
+    display: grid;
+    grid-template-columns: 1fr;
+    padding: 15px;
+    width: 100%;
+    height: 200px;
+
+}
+
+.card__book{
+    padding: 5px;
+    margin-top: 10px;
+    display: grid;
+    grid-template-columns: 4fr 7fr 1fr 1fr;
+    width: 100%;
+    height: 155px;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(65, 62, 62);
+    background-color: blue;
+
+}
+
+.title__book{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    padding:10px;
+}
+
+.image__book{
+    background-color: coral;
+    width: 180px;
+    height: 130px;
+    border:none;
+    outline: none;
+}
+
+.image__book a{
+    width: 180px;
+    height: 130px;
+    border:none;
+    outline: none;
+}
+
+.collecter,.discription__address{
+    display: inline;
+    width:100%;
+    height: 100%;
+    margin: 5PX 0 0 10PX;
+}
+.auther__book,.created__book{
+    width: 100%;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+
+}
+
+.auther__book a{
+    font-size: 25px;
+    text-decoration: none;
+    color: #fff;
+    
+    
+}
+
+.discription__address{
+    display: grid;
+    grid-template-rows: .5fr 1.5fr;
+    align-items: center;
+    padding: 10px;
+    box-shadow: 2px 2px 13px #090909 inset,-2px -2px 13px #28282e inset;
+    border: none;
+    outline: none;
+    margin-bottom: 8px;
+}
+
+.discription__address h5{
+    font-size: 21px;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    color: #fff;
+    text-decoration: none;
+   
+}
+.discription__address h5 a{
+    color: #fff;
+    text-decoration: none;   
+}
+
+.discription__book{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    overflow: hidden;
+
+}
+
+.update__book,.delete__book{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 21px;
+    
+}
+
+.update__book a,.delete__book a{
+    cursor: pointer;
+    color: lightgrey;
+}

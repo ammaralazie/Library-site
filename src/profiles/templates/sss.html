@@ -1,0 +1,47 @@
+{% extends 'main/baseProfile.html' %}
+{% load static %}
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/profileStyle.css' %}">
+{% endblock head %}
+{%  block title %}
+Profile
+{%  endblock title %}
+
+
+{%  block body %}
+
+<div class="background">
+    <div class="profile">
+        <div class="image">
+            {% if obj.avatar %}
+            <img src="{{obj.avatar.url}}" alt="" class="profile__image">
+            {% else  %}
+            <img src="{% static 'img/avatar.png' %}" alt="" class="profile__image">
+            {% endif %}
+        </div>
+        <div class="infomration">
+            <div class="information__profile">
+                <div class="username" >
+                    {% if obj.first_name and obj.last_name %}
+                    <div>{{obj.first_name}}&ThinSpace;{{obj.last_name}}</div>
+                    {% else %}
+                    <div>none</div>
+                    {% endif %}
+                    {% if obj.slug == objects.slug %}
+                    <a href="{% url 'profile:editprofile' obj.slug %}" class="update"><i class="fas fa-pencil"></i></a>
+                    {% endif %}
+                </div>
+                <div class="discription">{{obj.describtion|truncatechars:230}}</div>
+                <div class="number_book"><a href="{% url 'profile:allBooks' obj.slug %}"><i class="fas fa-books"></i>
+                    The number of books :
+                      {{obj.num_book}}
+                    </a></div>
+                <div class="created"><i class="far fa-clock"></i> The date of join :{{obj.created|date:" Y , b , D "}}</div>
+                
+                
+            </div>
+        </div>
+            
+</div>
+</div>
+{%  endblock body %}

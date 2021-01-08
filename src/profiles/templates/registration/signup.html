@@ -1,0 +1,50 @@
+{% load static %}
+{% load widget_tweaks %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{%static 'css/sinupStyle.css'%}">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+       
+    </div>
+    <div class="cover">
+        <div class="signup">
+            <h2>Create an account</h2>
+            <div class="form_signup">
+                
+                <form action="" method='POST'>
+                    {% csrf_token %}
+                   {% for filed in form %}
+                   {% if filed.name == 'username' %}
+                   
+                    {% render_field filed|add_class:'username_signup'|attr:'placeholder:username' %}
+                    <p class="_text">{{filed.help_text}}</p>
+                    {% endif %}
+                    {% if filed.name == 'password1' %}
+                    
+                    {% render_field form.password1|add_class:'password1'|attr:'placeholder:password' %}
+                    <p class="_text">{{filed.help_text}}</p>
+                    {% endif %}
+                    {% if filed.name == 'password2' %}
+                    
+                    {% render_field form.password2|add_class:'password2'|attr:'placeholder:password confirmation' %}
+                    <p class="_text">{{filed.help_text}}</p>
+                    {% endif %}
+                    {% endfor %}
+                    <button type="submit" >Sign Up</button>
+                    {% for error in filed.errors %}
+                    <p style="color: red">{{ error }}</p>
+                  {% endfor %}
+                </form>
+            </div>
+            <p class="lostpassword">If you have an account, you can &ThinSpace; <a href="{% url 'login' %}">log in</a></p>
+        </div>
+    </div>
+</body>
+</html>

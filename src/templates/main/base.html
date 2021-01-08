@@ -1,0 +1,112 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet icon" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <link rel="stylesheet icon" href="{% static 'css/style.css' %}">
+    
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block head %}
+    {% endblock head %}
+    <title>
+        
+        {%  block title %}
+        {%  endblock title %}
+    </title>
+</head>
+<body>
+ <!--navbar-->
+ <nav class="navbar">
+    <div class="nav__container">
+        <div class="logo" id="logo"> <a href="{% url 'home' %}">Library</a> </div>
+        <div class="list">
+            <div class="span">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        <ul class="options" id="options">
+            <li><a href="{% url 'library:filter_books' 'Romance' %}">Romance</a></li>
+            <li><a href="{% url 'library:filter_books' 'Cookbooks' %}">Cookbooks</a></li>
+            <li><a href="{% url 'library:filter_books' 'Travel' %}">Travel</a></li>
+            <li><a href="{% url 'library:filter_books' 'Short stories' %}">Short stories</a></li>
+            <li class="profile">
+                {% if request.user.is_authenticated %}
+                <a href="{% url 'profile:profile_view' objects.slug %}">{{objects}}</a>  <i class="far fa-user"></i>
+                {% else %}
+                <a href="{% url 'login' %}">{{objects}}</a>  <i class="far fa-user"></i>
+                {% endif %}
+            </li>
+        </ul>
+
+    </div>
+    </div>
+</nav>
+<!--end navbar-->
+<div class="hero__container">
+    <div class="hero__serach">
+        <form action="{% url 'library:search' %}" metod="get" >
+          {% csrf_token %}
+          <input class="input" type="search" name="search" placeholder="Enter the name of the book" >
+           <button class="button" type="submit" ><i class="far fa-search"></i></button>
+        </form>
+    </div>
+</div>
+ {%  block body %}
+ {%  endblock body %}
+<!--footer section-->
+<section class="footer">
+   <div class="footer__container">
+   <div class="footer__about">
+      <div class="about">
+         <h1>Title</h1>
+         <p>escripdsfghi sdijgsdkjg dsgjsdkgj dogjdsgj dsgjdksg dgjdsgj dkgjdkgj sdkgjdskg  dkgjdskg dsgjdskgj dgjsdgj sgjgj dkgjgk  dskgjdlkg dskgjdkg dkgdlkg dkgjsdjglksdj dsgflsdkgj dkgsdlkg dlkgdslg tion</p>
+      </div>
+      <div class="contact">
+          <h1>contact </h1>
+          <div class="span">
+            <span><a href="#"><i class="fab fa-twitter"></i></a></span>
+            <span><a href="#"><i class="fab fa-facebook"></i></a></span>
+            <span><a href=""><i class="fab fa-linkedin"></i></a></span>
+            <span><a href=""><i class="fab fa-instagram"></i></a></span>
+          </div>   
+      </div>
+   </div>
+   <div class="footer__copyright">
+      © 2020 Copyright :&nbsp;<a href="http://ammaralazie.pythonanywhere.com">ammaralazie.pythonanywhere.com</a> 
+   </div>
+</div>
+</section>
+<!-- end footer section-->
+<script >
+    //docs.dajngo project AJAX
+    function getToken(name) {
+      let cookieValue = null;
+      if (document.cookie && document.cookie !== '') {
+          const cookies = document.cookie.split(';');
+          for (let i = 0; i < cookies.length; i++) {
+              const cookie = cookies[i].trim();
+              // Does this cookie string begin with the name we want?
+              if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                  cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                  break;
+              }
+          }
+      }
+      return cookieValue;
+  }
+  //انضيف هذا المتغير الى ملف الجافا سكربت حتى نححق مطالب سي اس ا اس ار اف تكوين
+  const csrftoken = getToken('csrftoken');
+  </script>
+  <script>usr='{{request.user}}'</script>
+  <script src={% static 'js/main.js' %}></script>
+  <script src={% static 'js/show.js' %}></script>
+  <script src={% static 'js/close.js' %}></script>
+  <script src={% static 'js/commintSend.js' %}></script>
+  <script src={% static 'js/deleteCommint.js' %}></script>
+{%  block javascript %}
+{%  endblock javascript %}
+</body>
+</html>

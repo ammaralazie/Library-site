@@ -1,0 +1,111 @@
+*{
+    box-sizing:border-box;
+    padding:0;
+    margin: 0;
+}
+
+.cover_forms{
+    width: 100%;
+    padding-top: 20px ;
+    padding:20px 0 20px 10px;
+    background-color: #181818;
+}
+
+.firstName,.lastName,.describtion,.select{
+    padding: 10px;
+    font-size: 30px;
+    color: rgb(138, 156, 156);
+    background-color: #181818;
+}
+.renderfirstName,.renderlastName,.renderdescribtion{
+    margin-top: 10px;
+    border: 1px solid  rgb(138, 156, 156);
+    width: 400px;
+    resize:none;
+    height: 56px;
+
+}
+.renderdescribtion::-webkit-scrollbar{
+    display: none;
+}
+.renderfirstName:focus{
+    transition:all 1s ease-in-out ;
+    border:1px solid turquoise;
+    color: #fff;
+}
+.renderlastName:focus{
+    transition:all 1s ease-in-out ;
+    border:1px solid turquoise;
+    color: #fff;
+    
+}
+
+.renderdescribtion:focus{
+    transition:all 1s ease-in-out ;
+    border:1px solid turquoise;
+    color: #fff;
+    width: 600px;
+    height: 200px;
+}
+
+.avatar{
+position: relative;
+margin-left: 165px;
+padding: 20px ;
+color: turquoise ;
+border: 1px solid  rgb(138, 156, 156);
+width: 400px;
+height: 180px;
+margin-bottom: 20px;
+}
+
+.avatar a{
+    border:none; 
+    color:#d191ec;
+    text-decoration: none;
+    position: absolute;
+}
+
+.avatar input{
+    border:none; 
+    margin:0;
+    position: absolute;
+    margin-top: 10px;
+    color: rgb(138, 156, 156) ;
+    overflow: hidden;
+
+}
+.save{
+    margin-top: 40px;
+    margin-left: 165px;
+    width: 400px;
+    height: 60px;
+    background: #131313;  /* fallback for old browsers */
+      /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #DD2476, #FF512F);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #DD2476, #FF512F); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+    font-size: 30px;
+    border: 2px solid #eee;
+    cursor: pointer;
+    
+
+}
+
+.save:hover{
+   
+    transform: scale(1.03);
+    box-shadow: 4px 4px 4px rgb(180, 153, 153) inset,-4px -4px 4px rgb(224, 114, 114) inset;
+    
+}
+
+.custom-selector{
+    width: 370px;
+    height: 40px;
+    margin-left: 20px;
+    background-color:#4c4c60 ;
+    color: #fff;
+    font-size: 20px;
+}
